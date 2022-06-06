@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iconBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_baseline_arrow_back_ios_24"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tittleTolbar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/iconBack"
+            android:textAlignment="center"
+            android:text="Random"/>
+
+        <ImageView
+            android:id="@+id/iconShuffle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_baseline_shuffle_24"
+            android:layout_toEndOf="@+id/tittleTolbar"
+            android:visibility="visible"/>
+
+    </RelativeLayout>
+
+</Toolbar>

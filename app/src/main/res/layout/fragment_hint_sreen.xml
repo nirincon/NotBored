@@ -3,8 +3,102 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_colour"
     tools:context=".ui.activities.FragmentHintSreen">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tittleHintScreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/flexo_bold"
+            android:text="Learn how to play a new sport"
+            android:textColor="@color/black"
+            android:textSize="25sp"/>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/layoutParticipants"
+            style="@style/LayoutHintScreen"
+            android:layout_below="@id/tittleHintScreen"
+            android:layout_marginTop="120dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iconParticipants"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_baseline_person_24"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textParticipants"
+                style="@style/TextNumberOne"
+                android:text="@string/participants"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textNumParticipants"
+                style="@style/TextNumberSecond"
+                android:text="2"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/layoutPrice"
+            style="@style/LayoutHintScreen"
+            android:layout_below="@id/layoutParticipants"
+            android:layout_marginTop="30dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iconPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_baseline_attach_money_24" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textPrice"
+                style="@style/TextNumberOne"
+                android:text="@string/price"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textPriceCategory"
+                style="@style/TextNumberSecond"
+                android:text="Medium"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/layoutActivityRandom"
+            style="@style/LayoutHintScreen"
+            android:layout_below="@id/layoutPrice"
+            android:layout_marginTop="30dp"
+            android:visibility="gone">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iconActivityRandom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_baseline_format_list_bulleted_24" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textActivityRandom"
+                style="@style/TextNumberOne"
+                android:text="Relaxation"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonHintScreen"
+            style="@style/ButtonHintScreen"
+            android:layout_below="@+id/layoutPrice"/>
+    </RelativeLayout>
 
 </FrameLayout>

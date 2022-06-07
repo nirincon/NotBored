@@ -13,6 +13,8 @@
     <string name="recreational">Recreational</string>
     <string name="price">Price</string>
     <string name="button_hint_screen">Try another</string>
-    <string name="generic_message_progress">Por favor espere...</string>
+    <string name="generic_message_progress">please wait...</string>
+    <string name="agree_terms_and_conditions">I agree to Terms and Conditions</string>
+    <string name="accept_terms_and_conditions">Please accept terms and conditions if you wish to continue</string>
 
 </resources>

@@ -8,6 +8,7 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.navigation.fragment.findNavController
 import com.example.notbored.R
 import com.example.notbored.databinding.FragmentHomeBinding
+import com.google.android.material.snackbar.Snackbar
 
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
@@ -32,10 +33,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 }
             }
             btnStart.setOnClickListener {
-                val action = HomeFragmentDirections.actionHomeFragmentToActivityFragment(
-                    etParticipants.text.toString()
-                )
-                findNavController().navigate(action)
+                if (cbAceptar.isChecked){
+                    val action = HomeFragmentDirections.actionHomeFragmentToActivityFragment(
+                        etParticipants.text.toString()
+                    )
+                    findNavController().navigate(action)
+                }else
+                Snackbar
+                    .make(binding.root,getString(R.string.accept_terms_and_conditions), Snackbar.LENGTH_SHORT)
+                    .show()
             }
         }
     }

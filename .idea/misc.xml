@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.16906474820143885" />
+        <entry key="app/src/main/res/drawable/ic_baseline_arrow_back_ios_24.xml" value="0.282" />
         <entry key="app/src/main/res/drawable/ic_baseline_format_list_bulleted_24.xml" value="0.2335" />
         <entry key="app/src/main/res/drawable/ic_baseline_shuffle_24.xml" value="0.1745" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.35051546391752575" />

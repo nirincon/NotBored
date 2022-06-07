@@ -30,10 +30,17 @@ class ActivityFragment : Fragment(R.layout.fragment_activity), OnActivityListene
         Log.d("PARTICIPANTES",participants)
 
         with(binding){
-            toolbar.iconBack.visibility = View.GONE
-            toolbar.iconShuffle.visibility = View.VISIBLE
-            toolbar.tittleTolbar.text = "Activities"
+            with(toolbar) {
+                iconBack.visibility = View.GONE
+                iconShuffle.visibility = View.VISIBLE
+                tittleTolbar.text = "Activities"
+                iconShuffle.setOnClickListener {
+                    println("add logic")
+                }
+            }
+
         }
+
 
         adapter = AdapterActivities(activityList,this@ActivityFragment)
         binding.listActivitiesRV.layoutManager= LinearLayoutManager(view.context)

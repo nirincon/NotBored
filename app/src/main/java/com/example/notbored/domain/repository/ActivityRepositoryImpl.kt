@@ -4,5 +4,5 @@ import com.example.notbored.data.model.Activity
 import com.example.notbored.data.request.ActivitiesDataSource
 
 class ActivityRepositoryImpl(private val dataSource: ActivitiesDataSource): ActivityRepository {
-    override suspend fun getActivity(participants: String): Activity = dataSource.getActivity(participants)
+    override suspend fun getActivity(participants: String , type: String): Activity = dataSource.getActivity(participants,type)
 }

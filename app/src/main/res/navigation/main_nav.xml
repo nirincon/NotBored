@@ -34,5 +34,20 @@
         <argument
             android:name="participants"
             app:argType="string" />
+        <action
+            android:id="@+id/action_activityFragment_to_fragmentHintSreen"
+            app:destination="@id/fragmentHintSreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentHintSreen"
+        android:name="com.example.notbored.ui.activities.FragmentHintSreen"
+        android:label="fragment_hint_sreen"
+        tools:layout="@layout/fragment_hint_sreen" >
+        <argument
+            android:name="type"
+            app:argType="string" />
+        <argument
+            android:name="participants"
+            app:argType="string" />
     </fragment>
 </navigation>

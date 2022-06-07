@@ -5,7 +5,7 @@ import com.example.notbored.domain.rest.APIService
 
 class ActivitiesDataSource(private val apiService: APIService) {
     //Search Movies trough the WEB/API.
-    suspend fun getActivity(participants: String): Activity {
-         return apiService.getActivity(participants)
+    suspend fun getActivity(participants: String, type: String): Activity {
+         return apiService.getActivity(participants, type)
     }
 }

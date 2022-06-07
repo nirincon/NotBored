@@ -9,8 +9,8 @@ import retrofit2.http.Query
 
 //RETROFIT AND CALL TO THE API SERVICE
 interface APIService {
-    @GET("/api/activity?participants=")
-    suspend fun getActivity(@Query("participants") participants: String): Activity
+    @GET("/api/activity")
+    suspend fun getActivity(@Query("participants") participants: String, @Query("type") type: String): Activity
 }
 
 object RetrofitClient {

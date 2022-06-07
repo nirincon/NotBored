@@ -1,6 +1,6 @@
-package com.example.notbored.model
+package com.example.notbored.utils
 
-object Activities {
+object ActivitiesType {
     val listActivities = listOf<String>(
         "Education",
         "Recreational",

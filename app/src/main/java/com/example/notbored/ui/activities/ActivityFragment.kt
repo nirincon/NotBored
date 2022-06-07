@@ -2,32 +2,33 @@ package com.example.notbored.ui.activities
 
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.notbored.R
+import com.example.notbored.data.request.ActivitiesDataSource
 import com.example.notbored.databinding.FragmentActivityBinding
-import com.example.notbored.model.Activities
+import com.example.notbored.domain.repository.ActivityRepositoryImpl
+import com.example.notbored.domain.rest.RetrofitClient
+import com.example.notbored.utils.ActivitiesType
+import com.example.notbored.presentation.ActivitiesViewModel
+import com.example.notbored.presentation.ActivitiesViewModelFactory
 import com.example.notbored.ui.activities.Adapter.AdapterActivities
-import com.example.notbored.ui.activities.Adapter.OnActivityListener
 
 
-class ActivityFragment : Fragment(R.layout.fragment_activity), OnActivityListener  {
+class ActivityFragment : Fragment(R.layout.fragment_activity), AdapterActivities.OnActivityListener  {
     private lateinit var binding: FragmentActivityBinding
     private val args by navArgs<ActivityFragmentArgs>()
     private lateinit var adapter : AdapterActivities
-    private var activityList = Activities.listActivities
-
+    private var activityList = ActivitiesType.listActivities
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentActivityBinding.bind(view)
-        val participants = args.participants
-        Log.d("PARTICIPANTES",participants)
 
         with(binding){
             with(toolbar) {
@@ -47,8 +48,7 @@ class ActivityFragment : Fragment(R.layout.fragment_activity), OnActivityListene
         binding.listActivitiesRV.adapter = adapter
     }
 
-    override fun onActivityListener(activity: String) {
-
-    }
-
+    override fun onActivityClick(activity: String) {
+        val action = ActivityFragmentDirections.actionActivityFragmentToFragmentHintSreen(activity,args.participants)
+        findNavController().navigate(action) }
 }

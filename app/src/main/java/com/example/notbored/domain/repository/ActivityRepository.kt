@@ -4,5 +4,5 @@ import com.example.notbored.data.model.Activity
 
 interface ActivityRepository {
 
-    suspend fun getActivity(participants: String): Activity
+    suspend fun getActivity(participants: String, type: String): Activity
 }

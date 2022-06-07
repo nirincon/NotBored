@@ -33,7 +33,6 @@
         tools:layout="@layout/fragment_activity" >
         <argument
             android:name="participants"
-            app:argType="string"
-            android:defaultValue="0" />
+            app:argType="string" />
     </fragment>
 </navigation>

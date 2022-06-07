@@ -1,8 +1,8 @@
 package com.example.notbored.domain.repository
 
-import com.example.notbored.data.model.ActivitiesList
+import com.example.notbored.data.model.Activity
 
 interface ActivityRepository {
 
-    suspend fun getActivities(participants: String): ActivitiesList
+    suspend fun getActivity(participants: String): Activity
 }

@@ -11,5 +11,3 @@ data class Activity(
     val price: Float,
     val key: String
     )
-
-data class ActivitiesList(val results: List<Activity> = listOf())

@@ -4,18 +4,12 @@ package com.example.notbored.ui.activities
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.notbored.R
-import com.example.notbored.data.request.ActivitiesDataSource
 import com.example.notbored.databinding.FragmentActivityBinding
-import com.example.notbored.domain.repository.ActivityRepositoryImpl
-import com.example.notbored.domain.rest.RetrofitClient
 import com.example.notbored.utils.ActivitiesType
-import com.example.notbored.presentation.ActivitiesViewModel
-import com.example.notbored.presentation.ActivitiesViewModelFactory
 import com.example.notbored.ui.activities.Adapter.AdapterActivities
 
 
@@ -36,7 +30,7 @@ class ActivityFragment : Fragment(R.layout.fragment_activity), AdapterActivities
                 iconShuffle.visibility = View.VISIBLE
                 tittleTolbar.text = "Activities"
                 iconShuffle.setOnClickListener {
-                    println("add logic")
+                    startFragmentHintSreen("")
                 }
             }
 
@@ -48,7 +42,12 @@ class ActivityFragment : Fragment(R.layout.fragment_activity), AdapterActivities
         binding.listActivitiesRV.adapter = adapter
     }
 
-    override fun onActivityClick(activity: String) {
+    private fun startFragmentHintSreen(activity: String){
         val action = ActivityFragmentDirections.actionActivityFragmentToFragmentHintSreen(activity,args.participants)
-        findNavController().navigate(action) }
+        findNavController().navigate(action)
+    }
+
+    override fun onActivityClick(activity: String) {
+        startFragmentHintSreen(activity)
+    }
 }

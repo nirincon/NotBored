@@ -3,8 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="../../../../layout/custom_preview.xml" value="0.16906474820143885" />
-        <entry key="app/src/main/res/drawable/ic_baseline_arrow_back_ios_24.xml" value="0.282" />
+        <entry key="../../../layout/custom_preview.xml" value="0.12462159434914229" />
         <entry key="app/src/main/res/drawable/ic_baseline_format_list_bulleted_24.xml" value="0.2335" />
         <entry key="app/src/main/res/drawable/ic_baseline_shuffle_24.xml" value="0.1745" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.35051546391752575" />
@@ -12,6 +11,7 @@
         <entry key="app/src/main/res/layout/fragment_hint_sreen.xml" value="0.30939226519337015" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.28804347826086957" />
         <entry key="app/src/main/res/layout/fragment_terms.xml" value="0.11851851851851852" />
+        <entry key="app/src/main/res/layout/progresbar.xml" value="0.35885416666666664" />
         <entry key="app/src/main/res/layout/template_activity_item.xml" value="0.225" />
         <entry key="app/src/main/res/layout/toolbar.xml" value="0.375" />
       </map>

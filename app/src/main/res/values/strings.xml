@@ -10,7 +10,9 @@
   ]]></string>
     <string name="hint_screen">Back to main page</string>
     <string name="random">Random</string>
+    <string name="recreational">Recreational</string>
     <string name="price">Price</string>
     <string name="button_hint_screen">Try another</string>
+    <string name="generic_message_progress">Por favor espere...</string>
 
 </resources>

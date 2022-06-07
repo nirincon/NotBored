@@ -16,5 +16,6 @@
     <string name="generic_message_progress">please wait...</string>
     <string name="agree_terms_and_conditions">I agree to Terms and Conditions</string>
     <string name="accept_terms_and_conditions">Please accept terms and conditions if you wish to continue</string>
-
+    <string name="hint_price">Select a price...</string>
+    <string name="shared_prefs">shared_prefs</string>
 </resources>

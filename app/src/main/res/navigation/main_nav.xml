@@ -37,6 +37,12 @@
         <action
             android:id="@+id/action_activityFragment_to_fragmentHintSreen"
             app:destination="@id/fragmentHintSreen" />
+        <argument
+            android:name="minprice"
+            app:argType="string" />
+        <argument
+            android:name="maxprice"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/fragmentHintSreen"
@@ -48,6 +54,12 @@
             app:argType="string" />
         <argument
             android:name="participants"
+            app:argType="string" />
+        <argument
+            android:name="minprice"
+            app:argType="string" />
+        <argument
+            android:name="maxprice"
             app:argType="string" />
     </fragment>
 </navigation>

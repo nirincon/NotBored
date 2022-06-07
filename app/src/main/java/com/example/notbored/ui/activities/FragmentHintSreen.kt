@@ -36,7 +36,7 @@ class FragmentHintSreen : Fragment(R.layout.fragment_hint_sreen) {
     }
 
     private fun loadActivity() {
-        viewModel.fetchActivities(args.participants,args.type).observe(viewLifecycleOwner, Observer { activity ->
+        viewModel.fetchActivities(args.participants,args.type,args.minprice,args.maxprice).observe(viewLifecycleOwner, Observer { activity ->
             when(activity){
                 is Resource.Loading ->{
                     binding.incluProgress.layoutProgress.visibility = View.VISIBLE

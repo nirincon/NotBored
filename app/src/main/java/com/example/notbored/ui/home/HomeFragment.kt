@@ -23,11 +23,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         with(binding) {
             tvConditions.setOnClickListener { goToTerms() }
             etParticipants.doAfterTextChanged {
-                val text = binding.etParticipants.text.toString()
-                if (text.toInt() > 0 && text.isNotEmpty()) {
-                    binding.btnStart.isEnabled = true
+                val text = etParticipants.text.toString()
+                if (text != "0") {
+                    btnStart.isEnabled = true
                 } else {
-                    tilParticipants.error = "the number has to be greater than 0."
+                    btnStart.isEnabled = false
+                    etParticipants.error = "The number has to be greater than 0."
                 }
             }
             btnStart.setOnClickListener {

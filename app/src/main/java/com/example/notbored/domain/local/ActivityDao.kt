@@ -10,7 +10,7 @@ import com.example.notbored.data.model.Activity
 interface ActivityDao {
 
     @Query("SELECT * FROM Activity")
-    suspend fun getLocalActivityList(): ArrayList<Activity>
+    suspend fun getLocalActivityList(): List<Activity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveLocalActivityList(activity: Activity)

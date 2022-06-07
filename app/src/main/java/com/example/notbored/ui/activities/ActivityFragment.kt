@@ -43,7 +43,7 @@ class ActivityFragment : Fragment(R.layout.fragment_activity), AdapterActivities
     }
 
     private fun startFragmentHintSreen(activity: String){
-        val action = ActivityFragmentDirections.actionActivityFragmentToFragmentHintSreen(activity,args.participants)
+        val action = ActivityFragmentDirections.actionActivityFragmentToFragmentHintSreen(activity.lowercase(),args.participants)
         findNavController().navigate(action)
     }
 

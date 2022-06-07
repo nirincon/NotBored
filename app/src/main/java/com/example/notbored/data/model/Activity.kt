@@ -11,5 +11,6 @@ data class Activity(
     val participants: String,
     val price: String,
     @PrimaryKey
-    val key: String
+    val key: String,
+    val error: String? =null
     )

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.notbored.R
 import com.example.notbored.data.request.ActivitiesDataSource
@@ -14,6 +15,7 @@ import com.example.notbored.domain.rest.RetrofitClient
 import com.example.notbored.presentation.ActivitiesViewModel
 import com.example.notbored.presentation.ActivitiesViewModelFactory
 import com.example.notbored.utils.Resource
+import com.google.android.material.snackbar.Snackbar
 
 class FragmentHintSreen : Fragment(R.layout.fragment_hint_sreen) {
     lateinit var binding: FragmentHintSreenBinding
@@ -43,9 +45,19 @@ class FragmentHintSreen : Fragment(R.layout.fragment_hint_sreen) {
                 }
                 is Resource.Success ->{
                     binding.incluProgress.layoutProgress.visibility = View.GONE
-                    binding.RelativeHintScreen.visibility = View.VISIBLE
-                    binding.tittleHintScreen.text = activity.data.activity
-                    binding.textNumParticipants.text = args.participants
+                    if (activity.data.error.equals(null)){
+                        binding.RelativeHintScreen.visibility = View.VISIBLE
+                        binding.tittleHintScreen.text = activity.data.activity
+                        binding.textNumParticipants.text = args.participants
+                    }else {
+                        Snackbar
+                            .make(
+                                binding.root,
+                                activity.data.error.toString(),
+                                Snackbar.LENGTH_LONG
+                            )
+                            .show()
+                    }
 
                 }
                 is Resource.Failure ->{

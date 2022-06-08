@@ -39,9 +39,5 @@
         android:id="@+id/fragmentHintSreen"
         android:name="com.example.notbored.ui.activities.FragmentHintSreen"
         android:label="fragment_hint_sreen"
-        tools:layout="@layout/fragment_hint_sreen" >
-        <action
-            android:id="@+id/action_fragmentHintSreen_to_activityFragment"
-            app:destination="@id/activityFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_hint_sreen" />
 </navigation>

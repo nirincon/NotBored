@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.example.notbored.R
 import com.example.notbored.data.request.ActivitiesDataSource
 import com.example.notbored.databinding.FragmentHintSreenBinding
@@ -31,6 +32,8 @@ class FragmentHintSreen : Fragment(R.layout.fragment_hint_sreen) {
         binding = FragmentHintSreenBinding.bind(view)
         setPreferences()
         loadActivity()
+        binding.buttonHintScreen.setOnClickListener { loadActivity() }
+        binding.toolbar.iconBack.setOnClickListener { findNavController().navigate(R.id.action_fragmentHintSreen_to_activityFragment) }
     }
 
     private fun loadActivity() {
@@ -43,6 +46,13 @@ class FragmentHintSreen : Fragment(R.layout.fragment_hint_sreen) {
                 }
                 is Resource.Success ->{
                     binding.incluProgress.layoutProgress.visibility = View.GONE
+                    binding.toolbar.tittleTolbar.text = viewModel.getType()
+                    binding.textNumParticipants.text = activity.data.participants
+                    binding.textPriceCategory.text = getPrice(activity.data.price)
+                    if (viewModel.getType().equals("")){
+                        binding.layoutActivityRandom.visibility = View.VISIBLE
+                        binding.textActivityRandom.text = activity.data.type
+                    }
                     if (activity.data.error.equals(null)){
                         binding.RelativeHintScreen.visibility = View.VISIBLE
                         binding.tittleHintScreen.text = activity.data.activity
@@ -67,6 +77,17 @@ class FragmentHintSreen : Fragment(R.layout.fragment_hint_sreen) {
             }
         })
     }
+
+    private fun getPrice(price: Float): String {
+        return when (price) {
+            0.0f -> "Free"
+            in 0.0f..0.3f -> "Low"
+            in 0.3f..0.6f -> "Medium"
+            in 0.6f..1.0f -> "High"
+            else -> ""
+        }
+    }
+
     private fun setPreferences() {
         val sharedPreferences = activity?.getSharedPreferences(
             getString(R.string.shared_prefs),

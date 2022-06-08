@@ -9,7 +9,7 @@ data class Activity(
     val accessibility: Float,
     val type: String,
     val participants: String,
-    val price: String,
+    val price: Float,
     @PrimaryKey
     val key: String,
     val error: String? =null

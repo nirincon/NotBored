@@ -34,6 +34,7 @@ class ActivityFragment : Fragment(R.layout.fragment_activity),
 
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentActivityBinding.bind(view)

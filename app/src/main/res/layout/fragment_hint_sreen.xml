@@ -20,6 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/toolbar"
+            android:layout_marginEnd="100dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
             android:fontFamily="@font/flexo_bold"
@@ -99,11 +100,13 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/buttonHintScreen"
             style="@style/ButtonHintScreen"
-            android:layout_below="@+id/layoutPrice"/>
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="67dp" />
+
+        <include
+            android:id="@+id/incluProgress"
+            layout="@layout/progresbar" />
 
     </RelativeLayout>
-    <include
-        android:id="@+id/incluProgress"
-        layout="@layout/progresbar"/>
 
 </FrameLayout>

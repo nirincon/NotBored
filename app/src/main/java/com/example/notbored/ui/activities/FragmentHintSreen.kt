@@ -33,7 +33,7 @@ class FragmentHintSreen : Fragment(R.layout.fragment_hint_sreen) {
         setPreferences()
         loadActivity()
         binding.buttonHintScreen.setOnClickListener { loadActivity() }
-        binding.toolbar.iconBack.setOnClickListener { findNavController().navigate(R.id.action_fragmentHintSreen_to_activityFragment) }
+        binding.toolbar.iconBack.setOnClickListener { activity?.onBackPressed() }
     }
 
     private fun loadActivity() {
@@ -52,6 +52,7 @@ class FragmentHintSreen : Fragment(R.layout.fragment_hint_sreen) {
                     if (viewModel.getType().equals("")){
                         binding.layoutActivityRandom.visibility = View.VISIBLE
                         binding.textActivityRandom.text = activity.data.type
+                        binding.toolbar.tittleTolbar.text = resources.getString(R.string.random)
                     }
                     if (activity.data.error.equals(null)){
                         binding.RelativeHintScreen.visibility = View.VISIBLE

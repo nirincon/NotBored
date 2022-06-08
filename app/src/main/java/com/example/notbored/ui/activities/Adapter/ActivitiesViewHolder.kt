@@ -6,9 +6,10 @@ import com.example.notbored.MainActivity
 import com.example.notbored.databinding.FragmentActivityBinding
 import com.example.notbored.databinding.TemplateActivityItemBinding
 
-class ActivitiesViewHolder (binding: TemplateActivityItemBinding) : RecyclerView.ViewHolder(binding.root){
+class ActivitiesViewHolder(binding: TemplateActivityItemBinding) :
+    RecyclerView.ViewHolder(binding.root) {
     private val binding = TemplateActivityItemBinding.bind(binding.root)
-    fun bind(activity : String) {
+    fun bind(activity: String) {
         binding.tvActivity.text = activity
     }
 }

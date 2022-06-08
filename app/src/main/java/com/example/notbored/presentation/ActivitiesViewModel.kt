@@ -15,43 +15,43 @@ class ActivitiesViewModel(private val repo: ActivityRepository) : ViewModel() {
 
     private lateinit var sharedPreferences: SharedPreferences
 
-    fun setSharedPreferences (preferences: SharedPreferences){
+    fun setSharedPreferences(preferences: SharedPreferences) {
         this.sharedPreferences = preferences
     }
 
-    fun addParticipants(input: String){
+    fun addParticipants(input: String) {
         this.sharedPreferences.edit().putString("user", input).apply()
     }
 
-    fun getParticipants(): String{
-        participants.value = this.sharedPreferences.getString("user","")
+    fun getParticipants(): String {
+        participants.value = this.sharedPreferences.getString("user", "")
         return participants.value.toString()
     }
 
-    fun addType(input: String){
+    fun addType(input: String) {
         this.sharedPreferences.edit().putString("type", input).apply()
     }
 
-    fun getType(): String{
-        type.value = this.sharedPreferences.getString("type","")
+    fun getType(): String {
+        type.value = this.sharedPreferences.getString("type", "")
         return type.value.toString()
     }
 
-    fun addMin(input: String){
+    fun addMin(input: String) {
         this.sharedPreferences.edit().putString("min", input).apply()
     }
 
-    fun getMin(): String{
-        minprice.value = this.sharedPreferences.getString("min","")
+    fun getMin(): String {
+        minprice.value = this.sharedPreferences.getString("min", "")
         return minprice.value.toString()
     }
 
-    fun addMax(input: String){
+    fun addMax(input: String) {
         this.sharedPreferences.edit().putString("max", input).apply()
     }
 
-    fun getMax(): String{
-        maxprice.value = this.sharedPreferences.getString("max","")
+    fun getMax(): String {
+        maxprice.value = this.sharedPreferences.getString("max", "")
         return maxprice.value.toString()
     }
 

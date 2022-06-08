@@ -25,7 +25,7 @@ class ActivityFragment : Fragment(R.layout.fragment_activity),
     private lateinit var adapter: AdapterActivities
     private lateinit var participants: String
     private var activityList = ActivitiesType.listActivities
-    private val viewModel by viewModels<ActivitiesViewModel>{
+    private val viewModel by viewModels<ActivitiesViewModel> {
         ActivitiesViewModelFactory(
             ActivityRepositoryImpl(
                 ActivitiesDataSource(RetrofitClient.apiservice)

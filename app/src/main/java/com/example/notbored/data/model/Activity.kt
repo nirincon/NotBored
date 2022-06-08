@@ -12,5 +12,5 @@ data class Activity(
     val price: Float,
     @PrimaryKey
     val key: String,
-    val error: String? =null
-    )
+    val error: String? = null
+)

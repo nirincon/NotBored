@@ -19,7 +19,7 @@ import com.google.android.material.snackbar.Snackbar
 
 class FragmentHintSreen : Fragment(R.layout.fragment_hint_sreen) {
     lateinit var binding: FragmentHintSreenBinding
-    private val viewModel by viewModels<ActivitiesViewModel>{
+    private val viewModel by viewModels<ActivitiesViewModel> {
         ActivitiesViewModelFactory(
             ActivityRepositoryImpl(
                 ActivitiesDataSource(RetrofitClient.apiservice)
@@ -27,6 +27,7 @@ class FragmentHintSreen : Fragment(R.layout.fragment_hint_sreen) {
         )
 
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHintSreenBinding.bind(view)
@@ -37,28 +38,33 @@ class FragmentHintSreen : Fragment(R.layout.fragment_hint_sreen) {
     }
 
     private fun loadActivity() {
-        viewModel.fetchActivities(viewModel.getParticipants(),viewModel.getType(),viewModel.getMin(),viewModel.getMax()).observe(viewLifecycleOwner, Observer { activity ->
-            when(activity){
-                is Resource.Loading ->{
+        viewModel.fetchActivities(
+            viewModel.getParticipants(),
+            viewModel.getType(),
+            viewModel.getMin(),
+            viewModel.getMax()
+        ).observe(viewLifecycleOwner, Observer { activity ->
+            when (activity) {
+                is Resource.Loading -> {
                     binding.incluProgress.layoutProgress.visibility = View.VISIBLE
                     binding.RelativeHintScreen.visibility = View.GONE
 
                 }
-                is Resource.Success ->{
+                is Resource.Success -> {
                     binding.incluProgress.layoutProgress.visibility = View.GONE
                     binding.toolbar.tittleTolbar.text = viewModel.getType()
                     binding.textNumParticipants.text = activity.data.participants
                     binding.textPriceCategory.text = getPrice(activity.data.price)
-                    if (viewModel.getType().equals("")){
+                    if (viewModel.getType().equals("")) {
                         binding.layoutActivityRandom.visibility = View.VISIBLE
                         binding.textActivityRandom.text = activity.data.type
                         binding.toolbar.tittleTolbar.text = resources.getString(R.string.random)
                     }
-                    if (activity.data.error.equals(null)){
+                    if (activity.data.error.equals(null)) {
                         binding.RelativeHintScreen.visibility = View.VISIBLE
                         binding.tittleHintScreen.text = activity.data.activity
                         binding.textNumParticipants.text = activity.data.participants
-                    }else {
+                    } else {
                         Snackbar
                             .make(
                                 binding.root,
@@ -69,7 +75,7 @@ class FragmentHintSreen : Fragment(R.layout.fragment_hint_sreen) {
                     }
 
                 }
-                is Resource.Failure ->{
+                is Resource.Failure -> {
                     binding.incluProgress.layoutProgress.visibility = View.VISIBLE
                     binding.incluProgress.progressBar.visibility = View.GONE
                     binding.RelativeHintScreen.visibility = View.GONE

@@ -1,6 +1,7 @@
 package com.example.notbored.ui.activities
 
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -36,8 +37,7 @@ class ActivityFragment : Fragment(R.layout.fragment_activity),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentActivityBinding.bind(view)
-        participants = viewModel.getParticipants()
-
+        setPreferences()
         with(binding) {
             with(toolbar) {
                 iconBack.visibility = View.GONE
@@ -56,11 +56,21 @@ class ActivityFragment : Fragment(R.layout.fragment_activity),
     }
 
     private fun startFragmentHintSreen(activity: String) {
-        viewModel.addType(activity)
+        viewModel.addType(activity.lowercase())
         findNavController().navigate(R.id.action_activityFragment_to_fragmentHintSreen)
     }
 
     override fun onActivityClick(activity: String) {
         startFragmentHintSreen(activity)
+    }
+
+    private fun setPreferences() {
+        val sharedPreferences = activity?.getSharedPreferences(
+            getString(R.string.shared_prefs),
+            Context.MODE_PRIVATE
+        )
+        if (sharedPreferences != null) {
+            viewModel.setSharedPreferences(sharedPreferences)
+        }
     }
 }

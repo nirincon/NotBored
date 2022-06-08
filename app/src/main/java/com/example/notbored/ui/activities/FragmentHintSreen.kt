@@ -1,12 +1,11 @@
 package com.example.notbored.ui.activities
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.example.notbored.R
 import com.example.notbored.data.request.ActivitiesDataSource
 import com.example.notbored.databinding.FragmentHintSreenBinding
@@ -30,11 +29,12 @@ class FragmentHintSreen : Fragment(R.layout.fragment_hint_sreen) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHintSreenBinding.bind(view)
+        setPreferences()
         loadActivity()
     }
 
     private fun loadActivity() {
-        viewModel.fetchActivities(args.participants,args.type,args.minprice,args.maxprice).observe(viewLifecycleOwner, Observer { activity ->
+        viewModel.fetchActivities(viewModel.getParticipants(),viewModel.getType(),viewModel.getMin(),viewModel.getMax()).observe(viewLifecycleOwner, Observer { activity ->
             when(activity){
                 is Resource.Loading ->{
                     binding.incluProgress.layoutProgress.visibility = View.VISIBLE
@@ -67,6 +67,13 @@ class FragmentHintSreen : Fragment(R.layout.fragment_hint_sreen) {
             }
         })
     }
-
-
+    private fun setPreferences() {
+        val sharedPreferences = activity?.getSharedPreferences(
+            getString(R.string.shared_prefs),
+            Context.MODE_PRIVATE
+        )
+        if (sharedPreferences != null) {
+            viewModel.setSharedPreferences(sharedPreferences)
+        }
+    }
 }

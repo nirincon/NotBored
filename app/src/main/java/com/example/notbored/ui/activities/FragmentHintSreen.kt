@@ -19,8 +19,6 @@ import com.google.android.material.snackbar.Snackbar
 
 class FragmentHintSreen : Fragment(R.layout.fragment_hint_sreen) {
     lateinit var binding: FragmentHintSreenBinding
-    private val args by navArgs<FragmentHintSreenArgs>()
-
     private val viewModel by viewModels<ActivitiesViewModel>{
         ActivitiesViewModelFactory(
             ActivityRepositoryImpl(
@@ -48,7 +46,7 @@ class FragmentHintSreen : Fragment(R.layout.fragment_hint_sreen) {
                     if (activity.data.error.equals(null)){
                         binding.RelativeHintScreen.visibility = View.VISIBLE
                         binding.tittleHintScreen.text = activity.data.activity
-                        binding.textNumParticipants.text = args.participants
+                        binding.textNumParticipants.text = activity.data.participants
                     }else {
                         Snackbar
                             .make(

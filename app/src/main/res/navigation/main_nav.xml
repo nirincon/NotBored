@@ -31,35 +31,13 @@
         android:name="com.example.notbored.ui.activities.ActivityFragment"
         android:label="fragment_activity"
         tools:layout="@layout/fragment_activity" >
-        <argument
-            android:name="participants"
-            app:argType="string" />
         <action
             android:id="@+id/action_activityFragment_to_fragmentHintSreen"
             app:destination="@id/fragmentHintSreen" />
-        <argument
-            android:name="minprice"
-            app:argType="string" />
-        <argument
-            android:name="maxprice"
-            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/fragmentHintSreen"
         android:name="com.example.notbored.ui.activities.FragmentHintSreen"
         android:label="fragment_hint_sreen"
-        tools:layout="@layout/fragment_hint_sreen" >
-        <argument
-            android:name="type"
-            app:argType="string" />
-        <argument
-            android:name="participants"
-            app:argType="string" />
-        <argument
-            android:name="minprice"
-            app:argType="string" />
-        <argument
-            android:name="maxprice"
-            app:argType="string" />
-    </fragment>
+        tools:layout="@layout/fragment_hint_sreen" />
 </navigation>

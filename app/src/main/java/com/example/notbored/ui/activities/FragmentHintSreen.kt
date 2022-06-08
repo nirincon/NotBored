@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import com.example.notbored.R
 import com.example.notbored.data.request.ActivitiesDataSource
 import com.example.notbored.databinding.FragmentHintSreenBinding

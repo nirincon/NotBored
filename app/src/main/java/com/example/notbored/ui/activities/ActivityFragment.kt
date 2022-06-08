@@ -23,7 +23,6 @@ class ActivityFragment : Fragment(R.layout.fragment_activity),
     AdapterActivities.OnActivityListener {
     private lateinit var binding: FragmentActivityBinding
     private lateinit var adapter: AdapterActivities
-    private lateinit var participants: String
     private var activityList = ActivitiesType.listActivities
     private val viewModel by viewModels<ActivitiesViewModel> {
         ActivitiesViewModelFactory(
@@ -31,14 +30,23 @@ class ActivityFragment : Fragment(R.layout.fragment_activity),
                 ActivitiesDataSource(RetrofitClient.apiservice)
             )
         )
-
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentActivityBinding.bind(view)
         setPreferences()
+        setShuffle()
+        setAdapter(view)
+    }
+
+    private fun setAdapter(view: View) {
+        adapter = AdapterActivities(activityList, this@ActivityFragment)
+        binding.listActivitiesRV.layoutManager = LinearLayoutManager(view.context)
+        binding.listActivitiesRV.adapter = adapter
+    }
+
+    private fun setShuffle() {
         with(binding) {
             with(toolbar) {
                 iconBack.visibility = View.GONE
@@ -48,12 +56,7 @@ class ActivityFragment : Fragment(R.layout.fragment_activity),
                     startFragmentHintSreen("")
                 }
             }
-
         }
-
-        adapter = AdapterActivities(activityList, this@ActivityFragment)
-        binding.listActivitiesRV.layoutManager = LinearLayoutManager(view.context)
-        binding.listActivitiesRV.adapter = adapter
     }
 
     private fun startFragmentHintSreen(activity: String) {

@@ -18,7 +18,11 @@ import com.example.notbored.presentation.ActivitiesViewModel
 import com.example.notbored.presentation.ActivitiesViewModelFactory
 import com.google.android.material.snackbar.Snackbar
 
-
+/**
+ * Initial fragment, allows you to enter the number of participants, select the price,
+ * navigate to the terms and conditions snippet, and accept the terms and conditions
+ * to advance to the next fragment.
+ */
 class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemClickListener {
     private lateinit var binding: FragmentHomeBinding
     private val viewModel by viewModels<ActivitiesViewModel> {
@@ -62,6 +66,10 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemClickLi
         binding.faqSelection.onItemClickListener = this
     }
 
+/**
+ * By clicking the START button, verify that have accepted the terms and conditions
+ * to proceed with the application.
+ */
     private fun startListener() {
         binding.btnStart.setOnClickListener {
             if (binding.cbAceptar.isChecked) {
@@ -78,6 +86,10 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemClickLi
         }
     }
 
+/**
+ * Validate the selected price and save the maximum and minimum range to the sharedPreference.
+ * @param string
+ */
     private fun setValue(string: String) {
         return when (string) {
             in "Free" -> {
@@ -103,6 +115,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemClickLi
         }
     }
 
+/**
+ * Validate that the number of participants entered is different from zero and enable the START button.
+ */
     private fun textListener() {
         binding.etParticipants.doAfterTextChanged {
             val text = binding.etParticipants.text.toString()
@@ -115,6 +130,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemClickLi
         }
     }
 
+/**
+ * Navigate to the terms and conditions fragment.
+ */
     private fun goToTerms() {
         findNavController().navigate(R.id.action_homeFragment_to_termsFragment)
     }

@@ -7,8 +7,14 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-//RETROFIT AND CALL TO THE API SERVICE
+/**
+ * Interface, for the retrofit calls, where are the endpoints for this calls.
+ */
 interface APIService {
+
+    /**
+     * Endpoint who return an activity, this endpoint uses 4 optionals params.
+     */
     @GET("/api/activity")
     suspend fun getActivity(
         @Query("participants") participants: String,
@@ -18,6 +24,9 @@ interface APIService {
     ): Activity
 }
 
+/**
+ * Object who create an instance of retrofit.
+ */
 object RetrofitClient {
     val apiservice by lazy {
         Retrofit.Builder()

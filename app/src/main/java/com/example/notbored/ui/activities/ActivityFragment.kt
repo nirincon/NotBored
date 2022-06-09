@@ -18,7 +18,9 @@ import com.example.notbored.presentation.ActivitiesViewModelFactory
 import com.example.notbored.utils.ActivitiesType
 import com.example.notbored.ui.activities.Adapter.AdapterActivities
 
-
+/**
+ * Fragment that shows the list of activities and the toolbar with the random option.
+ */
 class ActivityFragment : Fragment(R.layout.fragment_activity),
     AdapterActivities.OnActivityListener {
     private lateinit var binding: FragmentActivityBinding
@@ -40,12 +42,22 @@ class ActivityFragment : Fragment(R.layout.fragment_activity),
         setAdapter(view)
     }
 
+/**
+ * the AdapterActivities instance is created and assigned to the RecyclerView.
+ * @param view
+ */
     private fun setAdapter(view: View) {
         adapter = AdapterActivities(activityList, this@ActivityFragment)
         binding.listActivitiesRV.layoutManager = LinearLayoutManager(view.context)
         binding.listActivitiesRV.adapter = adapter
     }
 
+/**
+ * A toolbar was created for two fragments, therefore, the random icon must be visible,
+ * the return icon hidden and the activities title assigned, since it is the view that shows these.
+ * Clicking on the random image button executes the startFragmentHintSreen()
+ * method but does not pass a specific activity as a parameter.
+ */
     private fun setShuffle() {
         with(binding) {
             with(toolbar) {
@@ -59,11 +71,19 @@ class ActivityFragment : Fragment(R.layout.fragment_activity),
         }
     }
 
+/**
+ * Add the activity to the sharedPreference AND navigate to the FragmentHintSreen fragment.
+ * @param activity
+ */
     private fun startFragmentHintSreen(activity: String) {
         viewModel.addType(activity.lowercase())
         findNavController().navigate(R.id.action_activityFragment_to_fragmentHintSreen)
     }
 
+/**
+ * Runs when a recycler activity is clicked.
+ * @param activity
+ */
     override fun onActivityClick(activity: String) {
         startFragmentHintSreen(activity)
     }

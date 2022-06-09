@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.notbored.R
 import com.example.notbored.databinding.TemplateActivityItemBinding
 
 class AdapterActivities(
@@ -17,8 +16,6 @@ class AdapterActivities(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActivitiesViewHolder {
-        //val layoutInflater = LayoutInflater.from(parent.context)
-        //return  ActivitiesViewHolder(layoutInflater.inflate(R.layout.template_activity_item,parent,false),this.onActivityListener)
         val itemBinding =
             TemplateActivityItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         val holder = ActivitiesViewHolder(itemBinding)

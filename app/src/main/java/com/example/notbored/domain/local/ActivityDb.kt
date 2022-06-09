@@ -4,6 +4,9 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.example.notbored.data.model.Activity
 
+/**
+ *Database versioning is defined
+ */
 @Database(
     entities = [Activity::class],
     version = 1

@@ -36,6 +36,10 @@ class FragmentHintSreen : Fragment(R.layout.fragment_hint_sreen) {
         binding.toolbar.iconBack.setOnClickListener { activity?.onBackPressed() }
     }
 
+    /**
+     * Consumption is made to the api and the data is loaded to the activity
+     * Validation is implemented for loading the data in the two cases (Random, Activity Selection)*/
+
     private fun loadActivity() {
         viewModel.fetchActivities(
             viewModel.getParticipants(),
@@ -85,7 +89,7 @@ class FragmentHintSreen : Fragment(R.layout.fragment_hint_sreen) {
     }
 
 /**
- * Returns the price according to the returned value obtained in the service.
+ * Returns the price range between free and high according to the returned value obtained in the service
  * @param price
  * @return
  */

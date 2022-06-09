@@ -68,6 +68,7 @@ class FragmentHintSreen : Fragment(R.layout.fragment_hint_sreen) {
                         binding.tittleHintScreen.text = activity.data.activity
                         binding.textNumParticipants.text = activity.data.participants
                     } else {
+                        this.activity?.onBackPressed()
                         Snackbar
                             .make(
                                 binding.root,

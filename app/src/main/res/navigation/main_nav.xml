@@ -28,9 +28,9 @@
     </fragment>
     <fragment
         android:id="@+id/activityFragment"
-        android:name="com.example.notbored.ui.activities.ActivityFragment"
+        android:name="com.example.notbored.ui.activities.ActivitiesListFragment"
         android:label="fragment_activity"
-        tools:layout="@layout/fragment_activity" >
+        tools:layout="@layout/fragment_activities_list" >
         <action
             android:id="@+id/action_activityFragment_to_fragmentHintSreen"
             app:destination="@id/fragmentHintSreen" />

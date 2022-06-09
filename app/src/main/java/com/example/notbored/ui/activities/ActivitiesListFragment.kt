@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.notbored.R
 import com.example.notbored.data.request.ActivitiesDataSource
-import com.example.notbored.databinding.FragmentActivityBinding
+import com.example.notbored.databinding.FragmentActivitiesListBinding
 import com.example.notbored.domain.repository.ActivityRepositoryImpl
 import com.example.notbored.domain.rest.RetrofitClient
 import com.example.notbored.presentation.ActivitiesViewModel
@@ -21,9 +21,9 @@ import com.example.notbored.ui.activities.Adapter.AdapterActivities
 /**
  * Fragment that shows the list of activities and the toolbar with the random option.
  */
-class ActivityFragment : Fragment(R.layout.fragment_activity),
+class ActivitiesListFragment : Fragment(R.layout.fragment_activities_list),
     AdapterActivities.OnActivityListener {
-    private lateinit var binding: FragmentActivityBinding
+    private lateinit var binding: FragmentActivitiesListBinding
     private lateinit var adapter: AdapterActivities
     private var activityList = ActivitiesType.listActivities
     private val viewModel by viewModels<ActivitiesViewModel> {
@@ -36,7 +36,7 @@ class ActivityFragment : Fragment(R.layout.fragment_activity),
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentActivityBinding.bind(view)
+        binding = FragmentActivitiesListBinding.bind(view)
         setPreferences()
         setShuffle()
         setAdapter(view)
@@ -47,7 +47,7 @@ class ActivityFragment : Fragment(R.layout.fragment_activity),
  * @param view
  */
     private fun setAdapter(view: View) {
-        adapter = AdapterActivities(activityList, this@ActivityFragment)
+        adapter = AdapterActivities(activityList, this@ActivitiesListFragment)
         binding.listActivitiesRV.layoutManager = LinearLayoutManager(view.context)
         binding.listActivitiesRV.adapter = adapter
     }

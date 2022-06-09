@@ -84,6 +84,11 @@ class FragmentHintSreen : Fragment(R.layout.fragment_hint_sreen) {
         })
     }
 
+/**
+ * Returns the price according to the returned value obtained in the service.
+ * @param price
+ * @return
+ */
     private fun getPrice(price: Float): String {
         return when (price) {
             0.0f -> "Free"

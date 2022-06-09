@@ -6,7 +6,9 @@ import android.view.View
 import com.example.notbored.R
 import com.example.notbored.databinding.FragmentTermsBinding
 
-
+/**
+ * Fragment to present the terms and conditions of the application.
+ */
 class TermsFragment : Fragment(R.layout.fragment_terms) {
 
     private lateinit var binding: FragmentTermsBinding

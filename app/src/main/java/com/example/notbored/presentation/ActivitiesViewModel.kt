@@ -26,7 +26,11 @@ class ActivitiesViewModel(private val repo: ActivityRepository) : ViewModel() {
      * Add participants to the shared preferences
      */
     fun addParticipants(input: String) {
-        this.sharedPreferences.edit().putString("user", input).apply()
+        if (input == ""){
+            this.sharedPreferences.edit().putString("user","").apply()
+        } else{
+            this.sharedPreferences.edit().putString("user", input).apply()
+        }
     }
 
     /**
@@ -40,7 +44,11 @@ class ActivitiesViewModel(private val repo: ActivityRepository) : ViewModel() {
      * Add types to the shared preferences
      */
     fun addType(input: String) {
-        this.sharedPreferences.edit().putString("type", input).apply()
+        if (input == ""){
+            this.sharedPreferences.edit().putString("type", "").apply()
+        }else {
+            this.sharedPreferences.edit().putString("type", input).apply()
+        }
     }
 
     /**

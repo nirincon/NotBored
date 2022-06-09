@@ -99,7 +99,7 @@ class ActivityDetailsFragment : Fragment(R.layout.fragment_activity_details) {
             0.0f -> "Free"
             in 0.0f..0.3f -> "Low"
             in 0.3f..0.6f -> "Medium"
-            in 0.6f..1.0f -> "High"
+            in 0.61f..1.0f -> "High"
             else -> ""
         }
     }

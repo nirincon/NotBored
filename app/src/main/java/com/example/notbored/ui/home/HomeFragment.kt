@@ -109,7 +109,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemClickLi
             }
             in "High" -> {
                 viewModel.addMax("1")
-                viewModel.addMin("0.6")
+                viewModel.addMin("0.61")
             }
             else -> {
                 viewModel.addMax("")

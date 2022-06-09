@@ -18,6 +18,7 @@
     <string name="accept_terms_and_conditions">Please accept terms and conditions if you wish to continue</string>
     <string name="hint_price">Select a price...</string>
     <string name="shared_prefs">shared_prefs</string>
+    <string name="error_greater_than_zero">The number has to be greater than 0.</string>
     <string-array name="price_items">
         <item>Free</item>
         <item>Low</item>

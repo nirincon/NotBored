@@ -59,6 +59,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemClickLi
         }
     }
 
+/**
+ * show pricing options
+ */
     private fun setPriceOptions() {
         val priceOptions = resources.getStringArray(R.array.price_items)
         val adapter = ArrayAdapter(this.requireContext(), R.layout.item_list, priceOptions)
@@ -125,7 +128,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemClickLi
                 binding.btnStart.isEnabled = true
             } else {
                 binding.btnStart.isEnabled = false
-                binding.etParticipants.error = "The number has to be greater than 0."
+                binding.etParticipants.error = getString(R.string.error_greater_than_zero)
             }
         }
     }

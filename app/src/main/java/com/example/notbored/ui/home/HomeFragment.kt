@@ -40,7 +40,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemClickLi
         setPreferences()
     }
 
-
+    /**
+     * Initialize important functions on the UI.
+     */
     private fun init() {
         binding.tvConditions.setOnClickListener { goToTerms() }
         textListener()
@@ -48,7 +50,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), AdapterView.OnItemClickLi
         setPriceOptions()
     }
 
-
+    /**
+     * set shared preferences.
+     */
     private fun setPreferences() {
         val sharedPreferences = activity?.getSharedPreferences(
             getString(R.string.shared_prefs),

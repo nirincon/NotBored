@@ -3,6 +3,9 @@ package com.example.notbored.data.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+/**
+ * Model for the activities.
+ */
 @Entity
 data class Activity(
     val activity: String,

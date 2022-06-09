@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_colour"
-    tools:context=".ui.activities.FragmentHintSreen">
+    tools:context=".ui.activities.ActivityDetailsFragment">
 
     <RelativeLayout
         android:id="@+id/RelativeHintScreen"

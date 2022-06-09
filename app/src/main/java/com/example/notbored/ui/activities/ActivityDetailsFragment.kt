@@ -8,7 +8,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.example.notbored.R
 import com.example.notbored.data.request.ActivitiesDataSource
-import com.example.notbored.databinding.FragmentHintSreenBinding
+import com.example.notbored.databinding.FragmentActivityDetailsBinding
 import com.example.notbored.domain.repository.ActivityRepositoryImpl
 import com.example.notbored.domain.rest.RetrofitClient
 import com.example.notbored.presentation.ActivitiesViewModel
@@ -16,8 +16,8 @@ import com.example.notbored.presentation.ActivitiesViewModelFactory
 import com.example.notbored.utils.Resource
 import com.google.android.material.snackbar.Snackbar
 
-class FragmentHintSreen : Fragment(R.layout.fragment_hint_sreen) {
-    lateinit var binding: FragmentHintSreenBinding
+class ActivityDetailsFragment : Fragment(R.layout.fragment_activity_details) {
+    lateinit var binding: FragmentActivityDetailsBinding
     private val viewModel by viewModels<ActivitiesViewModel> {
         ActivitiesViewModelFactory(
             ActivityRepositoryImpl(
@@ -29,7 +29,7 @@ class FragmentHintSreen : Fragment(R.layout.fragment_hint_sreen) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentHintSreenBinding.bind(view)
+        binding = FragmentActivityDetailsBinding.bind(view)
         setPreferences()
         loadActivity()
         binding.buttonHintScreen.setOnClickListener { loadActivity() }

@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragmentHintSreen"
-        android:name="com.example.notbored.ui.activities.FragmentHintSreen"
+        android:name="com.example.notbored.ui.activities.ActivityDetailsFragment"
         android:label="fragment_hint_sreen"
-        tools:layout="@layout/fragment_hint_sreen" />
+        tools:layout="@layout/fragment_activity_details" />
 </navigation>
